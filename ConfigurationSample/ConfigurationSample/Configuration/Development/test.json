@@ -1,0 +1,15 @@
+{
+	"testsection": {
+
+		"testvalue1": "Hello",
+		"testvalue2": "World",
+		"names": [
+			"De Saarlänner",
+			"De Schwob",
+			"Kevin",
+			"Albert",
+			"Falk",
+			"Jevgen"
+		] 
+	}
+}

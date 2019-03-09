@@ -1,0 +1,11 @@
+﻿@model TestViewModel
+
+
+<div>
+	@Model.ToString()
+	
+	@foreach ( var name in Model.Names )
+	{
+		<br />@name
+	}
+</div>
