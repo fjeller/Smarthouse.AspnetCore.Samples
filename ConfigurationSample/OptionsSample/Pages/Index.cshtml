@@ -1,0 +1,15 @@
+﻿@page
+@using OptionsSample.OptionClasses
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+	<p>The current default Caching time is set to: @Model.DefaultCachingTime</p>
+	<p>The Share caching time is set to: @Model.ShareCachingTime</p>
+	<p>The Snapshot values are respectively: @Model.SnapshotDefaultCachingTime | @Model.SnapshotShareCachingTime</p>
+	<p>The Name is: @Model.Name</p>
+</div>
