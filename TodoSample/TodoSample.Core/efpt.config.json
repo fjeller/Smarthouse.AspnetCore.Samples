@@ -1,0 +1,1 @@
+﻿{"ContextClassName":"TodoDbContext","DefaultDacpacSchema":null,"IdReplace":false,"IncludeConnectionString":false,"OutputPath":"DataAccess","ProjectRootNamespace":"TodoSample.Core","SelectedToBeGenerated":0,"Tables":[{"HasPrimaryKey":true,"Name":"Todo.TodoItems"}],"UseDatabaseNames":false,"UseFluentApiOnly":true,"UseHandleBars":false,"UseInflector":true}
