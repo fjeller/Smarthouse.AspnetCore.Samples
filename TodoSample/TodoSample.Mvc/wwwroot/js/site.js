@@ -6,16 +6,21 @@ class IndexPageManager {
 
 	_initialize() {
 
-		let checkboxes = $( '[data-id]' );
-		if (checkboxes.Length == 0) {
+		let that = this;
+
+		let buttons = $( '[data-id]' );
+		if ( buttons.Length == 0) {
 			return;
 		}
 
-		checkboxes.each(function() {
+		buttons.each(function() {
 			let id = $( this ).data( 'id' );
 			$(this).on('click',
-				function() {
-					$('#todo-table').load('/index?handler=Toggle&id=' + id);
+				function ( e ) {
+					e.preventDefault();
+					$( '#todo-table' ).load( '/Home/ToggleState/' + id, function () {
+						that._initialize();
+					});
 				});
 		});
 	}
@@ -24,7 +29,9 @@ var indexPageManager;
 
 $( function () {
 
-	if ( $( '#pageIndex' ).Length > 0 ) {
+	let pageindexLength = $('#pageIndex').length;
+
+	if ( pageindexLength > 0 ) {
 		indexPageManager = new IndexPageManager();
 	}
 

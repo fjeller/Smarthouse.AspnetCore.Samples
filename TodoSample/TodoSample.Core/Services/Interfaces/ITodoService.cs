@@ -61,6 +61,15 @@ namespace TodoSample.Core.Services.Interfaces
 
 		/// =================================================================================================================
 		/// <summary>
+		/// Saves a todoitem in the database
+		/// </summary>
+		/// <param name="model">The todoitem data to save in the database</param>
+		/// <returns>void</returns>
+		/// =================================================================================================================
+		Task SaveTodoItem( NewTodoItemModel model );
+
+		/// =================================================================================================================
+		/// <summary>
 		/// Deletes the todoitem from the database
 		/// </summary>
 		/// <param name="id">the id of the todoitem</param>

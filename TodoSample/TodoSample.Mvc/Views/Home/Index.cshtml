@@ -1,11 +1,11 @@
-﻿
+﻿@model TodoSample.Core.Models.NewTodoItemModel
 @{
 	ViewData["Title"] = "Home Page";
 }
 
 <div id="pageIndex"></div>
 
-<form asp-page="/index">
+<form asp-action="SaveTodoItem" asp-controller="Home">
 
 	<div asp-validation-summary="All"></div>
 
@@ -28,6 +28,6 @@
 
 <div class="row">
 	<div id="todo-table" class="col-12">
-		<partial name="_TodoItems" model="Model" />
+		@await Component.InvokeAsync( "TodoItemList" )
 	</div>
 </div>

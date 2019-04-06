@@ -18,7 +18,7 @@
 			$(this).on('click',
 				function ( e ) {
 					e.preventDefault();
-					$( '#todo-table' ).load( '/index?handler=Toggle&id=' + id, function () {
+					$( '#todo-table' ).load( '/Home/ToggleState/' + id, function () {
 						that._initialize();
 					});
 				});

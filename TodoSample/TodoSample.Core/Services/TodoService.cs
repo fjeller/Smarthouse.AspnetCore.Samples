@@ -102,10 +102,23 @@ namespace TodoSample.Core.Services
 		/// <summary>
 		/// Saves a todoitem in the database
 		/// </summary>
-		/// <param name="model">The todoitem data to save in the database</param>
+		/// <param name="model">The <see cref="TodoItemModel"/> object to save in the database</param>
 		/// <returns>void</returns>
 		/// =================================================================================================================
 		public async Task SaveTodoItem( TodoItemModel model )
+		{
+			TodoItemData data = model.ToDataItem();
+			await this._todoRepository.SaveTodoItem( data );
+		}
+
+		/// =================================================================================================================
+		/// <summary>
+		/// Saves a todoitem in the database
+		/// </summary>
+		/// <param name="model">The <see cref="NewTodoItemModel"/> object to save in the database</param>
+		/// <returns>void</returns>
+		/// =================================================================================================================
+		public async Task SaveTodoItem( NewTodoItemModel model )
 		{
 			TodoItemData data = model.ToDataItem();
 			await this._todoRepository.SaveTodoItem( data );
