@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoSample.RazorPages", "TodoSample.RazorPages\TodoSample.RazorPages.csproj", "{762CB7B6-F8FF-4179-9D01-FF980188C411}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoSample.RazorPages", "TodoSample.RazorPages\TodoSample.RazorPages.csproj", "{762CB7B6-F8FF-4179-9D01-FF980188C411}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoSample.Core", "TodoSample.Core\TodoSample.Core.csproj", "{63BFE061-0F70-47F4-8315-B3E1D9275F4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoSample.Core", "TodoSample.Core\TodoSample.Core.csproj", "{63BFE061-0F70-47F4-8315-B3E1D9275F4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoSample.Mvc", "TodoSample.Mvc\TodoSample.Mvc.csproj", "{3F958178-51B0-4984-92D2-F3ADAB6CA5DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{63BFE061-0F70-47F4-8315-B3E1D9275F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63BFE061-0F70-47F4-8315-B3E1D9275F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63BFE061-0F70-47F4-8315-B3E1D9275F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F958178-51B0-4984-92D2-F3ADAB6CA5DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F958178-51B0-4984-92D2-F3ADAB6CA5DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F958178-51B0-4984-92D2-F3ADAB6CA5DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F958178-51B0-4984-92D2-F3ADAB6CA5DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

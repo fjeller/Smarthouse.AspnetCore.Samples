@@ -1,0 +1,31 @@
+﻿@model List<TodoSample.Core.Models.TodoItemModel>
+
+<table class="table">
+	
+	<tr>
+		<th>Done</th>
+		<th>Name</th>
+		<th>Due Date</th>
+	</tr>
+
+	@foreach ( var item in Model )
+	{
+
+		<tr>
+			<td style="text-align:center">
+				@if ( item.IsDone )
+				{
+					<button type="button" data-id="@item.Id" class="btn btn-sm btn-outline-success">DONE</button>
+				}
+				else
+				{
+					<button type="button" data-id="@item.Id" class="btn btn-sm btn-outline-info">OPEN</button>
+				}
+			</td>
+			<td>@item.Name</td>
+			<td>@item.DueDate.ToLongDateString()</td>
+		</tr>
+
+	}
+
+</table>
