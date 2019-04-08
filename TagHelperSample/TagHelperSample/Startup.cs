@@ -14,6 +14,12 @@ namespace TagHelperSample
 {
 	public class Startup
 	{
+		/// =================================================================================================================
+		/// <summary>
+		/// The constructor
+		/// </summary>
+		/// <param name="configuration">The configuration</param>
+		/// =================================================================================================================
 		public Startup( IConfiguration configuration )
 		{
 			Configuration = configuration;

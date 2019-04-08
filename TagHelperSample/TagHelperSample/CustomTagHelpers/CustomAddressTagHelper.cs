@@ -16,14 +16,16 @@ namespace TagHelperSample.CustomTagHelpers
 	/// The Tag Helper naming follows conventions:
 	/// - TagHelper is ommitted
 	/// - Pascal-case is transformed into kebap-case
-	/// Hence this tag helper is used on a page as <cookie-consent></cookie-consent>
+	/// Hence this tag helper is used on a page as <custom-address></custom-address>
 	/// </summary>
 	/// =================================================================================================================
 	public class CustomAddressTagHelper : TagHelper 
 	{
+		/// =================================================================================================================
 		/// <summary>
 		/// The model with the data to display
 		/// </summary>
+		/// =================================================================================================================
 		public AddressModel Model { get; set; }
 
 		/// =================================================================================================================
