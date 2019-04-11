@@ -1,10 +1,39 @@
 ﻿@page
+@using RazorPagesSample.DataContext
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<h1 class="display-4">The people from the database</h1>
+
+	<table style="width: 400px">
+		
+		@foreach ( PersonEntity person in Model.People )
+		{
+			<tr>
+				<td>@person.FirstName</td>
+				<td>@person.LastName</td>
+			</tr>
+
+		}
+
+	</table>
+
 </div>
+
+<form asp-page="Index">
+	<div class="form-group">
+		<label asp-for="FirstName" class="form-control"></label>
+		<input asp-for="FirstName" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="LastName" class="form-control"></label>
+		<input asp-for="LastName" class="form-control" />
+	</div>
+	
+	<div>
+		<button type="submit">Submit</button>
+	</div>
+</form>

@@ -33,10 +33,8 @@ function javascriptMinified() {
 		.pipe(dest('wwwroot/js'));
 }
 
-var watcher = null;
-
 function startWatcher(callback) {
-	watcher = watch( 'wwwroot/less/*.less', parallel( css, cssMinified ) );
+	let watcher = watch( 'wwwroot/less/*.less', parallel( css, cssMinified ) );
 	callback();
 }
 

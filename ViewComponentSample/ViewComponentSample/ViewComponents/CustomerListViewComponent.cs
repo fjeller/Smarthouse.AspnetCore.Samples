@@ -11,7 +11,7 @@ namespace ViewComponentSample.ViewComponents
 	{
 		#region Fields
 
-		private DemoDataContext _dataContext;
+		private readonly DemoDataContext _dataContext;
 
 		#endregion
 
