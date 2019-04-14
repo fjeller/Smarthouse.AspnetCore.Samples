@@ -1,0 +1,39 @@
+﻿@model EnterNameModel
+@{
+	ViewData["Title"] = "EnterNameAjax";
+}
+
+<h1>EnterName - Javascript Ajax Form</h1>
+
+<form asp-action="SaveNameJavascript" asp-controller="Home" data-ajax="true" data-ajax-success="handleResult" method="post">
+
+	<div asp-validation-summary="All"></div>
+
+	<div class="form-group row">
+		<label asp-for="@Model.FirstName" class="col-2 col-form-label"></label>
+		<div class="col-10">
+			<input asp-for="@Model.FirstName" class="form-control" />
+		</div>
+	</div>
+	<div class="form-group row">
+		<label asp-for="@Model.LastName" class="col-2 col-form-label"></label>
+		<div class="col-10">
+			<input asp-for="@Model.LastName" class="form-control" />
+		</div>
+	</div>
+	<div class="row justify-content-end">
+		<button type="submit">Submit</button>
+	</div>
+
+</form>
+
+<br /><br />
+<div id="resultDiv">
+
+	@* results go here *@
+
+</div>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
