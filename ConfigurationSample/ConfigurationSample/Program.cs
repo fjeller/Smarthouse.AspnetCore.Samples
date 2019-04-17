@@ -38,13 +38,8 @@ namespace ConfigurationSample
 					string baseFile = "Configuration/test.json";
 					string devFile = $"Configuration/{hostingEnvironment.EnvironmentName}/test.json";
 
-                    string baseFile2 = "Configuration/test2.json";
-                    string devFile2 = $"Configuration/{hostingEnvironment.EnvironmentName}/test2.json";
-
                     config.AddJsonFile(baseFile, true, true );
 					config.AddJsonFile( devFile, true, true );
-                    config.AddJsonFile(baseFile2, true, true);
-                    config.AddJsonFile(devFile2, true, true);
                 } )
 				.UseStartup<Startup>();
 		}
