@@ -1,0 +1,22 @@
+﻿@using BerlinSample.Core.DataClasses
+@{
+    ViewData["Title"] = "Home Page";
+
+    AddressData address = new AddressData()
+    {
+        FirstName = "Frank",
+        LastName = "Eller",
+        Street = "Frühlingsstraße 8",
+        ZipCode = "76113",
+        City = "Karlsruhe"
+    };
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h2>Here's an address for you</h2>
+
+<custom-address model="@address"></custom-address>

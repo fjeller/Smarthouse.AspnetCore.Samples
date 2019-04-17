@@ -20,7 +20,7 @@ namespace OptionsSample
 		public static IWebHostBuilder CreateWebHostBuilder( string[] args )
 		{
 			return WebHost.CreateDefaultBuilder( args )
-				.ConfigureAppConfiguration(config => config.AddJsonFile("testconfig.json", true, false))
+				.ConfigureAppConfiguration(config => config.AddJsonFile("testconfig.json", true, true))
 				.UseStartup<Startup>();
 		}
 	}
