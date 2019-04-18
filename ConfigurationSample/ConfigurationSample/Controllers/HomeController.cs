@@ -45,16 +45,16 @@ namespace ConfigurationSample.Controllers
 
 		public IActionResult TestView()
 		{
-			TestViewModel model = new TestViewModel();
-			Configuration.GetSection( "testsection" ).Bind( model );
+            //TestViewModel model = new TestViewModel();
+            //Configuration.GetSection( "testsection" ).Bind( model );
 
-			//TestViewModel model = new TestViewModel()
-			//{
-			//	FirstWord = Configuration.GetSection( "testsection" ).GetValue<string>( "testvalue1" ),
-			//	SecondWord = Configuration.GetSection( "testsection" ).GetValue<string>( "testvalue2" )
-			//};
+            TestViewModel model = new TestViewModel()
+            {
+                TestValue1 = Configuration.GetSection("testsection").GetValue<string>("testvalue1"),
+                TestValue2 = Configuration.GetSection("testsection").GetValue<string>("testvalue2")
+            };
 
-			return View( model );
+            return View( model );
 		}
 
 

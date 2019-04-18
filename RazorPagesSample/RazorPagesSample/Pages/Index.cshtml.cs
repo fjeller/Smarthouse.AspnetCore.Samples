@@ -61,7 +61,7 @@ namespace RazorPagesSample.Pages
 			int id = lastEntity?.Id +1 ?? 100;
 
 			PersonEntity entity = new PersonEntity() {FirstName = FirstName, LastName = LastName, Id=id};
-			//People.Add( entity );
+
 			this._dataContext.PersonEntities.Add( entity );
 			await this._dataContext.SaveChangesAsync();
 			return RedirectToPage( "/Index" );

@@ -12,7 +12,7 @@ namespace ConfigurationSample.Models
 
 		public string TestValue2 { get; set; }
 
-		public string[] Names { get; set; }
+        public string[] Names { get; set; } = new string[0];
 
 		public override string ToString()
 		{

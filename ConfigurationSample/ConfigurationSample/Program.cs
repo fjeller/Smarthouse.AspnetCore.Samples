@@ -19,29 +19,29 @@ namespace ConfigurationSample
 
 		public static IWebHostBuilder CreateWebHostBuilder( string[] args )
 		{
-			//return WebHost.CreateDefaultBuilder( args )
-			//	.ConfigureAppConfiguration( ( hostingContext, config ) =>
-			//	{
-			//		IHostingEnvironment hostingEnvironment = hostingContext.HostingEnvironment;
+            //return WebHost.CreateDefaultBuilder(args)
+            //    .ConfigureAppConfiguration((hostingContext, config) =>
+            //   {
+            //       IHostingEnvironment hostingEnvironment = hostingContext.HostingEnvironment;
 
-			//		string environmentConfigFileName = $"test.{hostingEnvironment.EnvironmentName}.json";
+            //       string environmentConfigFileName = $"test.{hostingEnvironment.EnvironmentName}.json";
 
-			//		config.AddJsonFile( "test.json", true, true );
-			//		config.AddJsonFile( environmentConfigFileName, true, true );
-			//	} )
-			//	.UseStartup<Startup>();
+            //       config.AddJsonFile("test.json", true, true);
+            //       config.AddJsonFile(environmentConfigFileName, true, true);
+            //   })
+            //    .UseStartup<Startup>();
 
-			return WebHost.CreateDefaultBuilder( args )
-				.ConfigureAppConfiguration( ( hostingContext, config ) =>
-				{
-					IHostingEnvironment hostingEnvironment = hostingContext.HostingEnvironment;
-					string baseFile = "Configuration/test.json";
-					string devFile = $"Configuration/{hostingEnvironment.EnvironmentName}/test.json";
+            return WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   IHostingEnvironment hostingEnvironment = hostingContext.HostingEnvironment;
+                   string baseFile = "Configuration/test.json";
+                   string devFile = $"Configuration/{hostingEnvironment.EnvironmentName}/test.json";
 
-                    config.AddJsonFile(baseFile, true, true );
-					config.AddJsonFile( devFile, true, true );
-                } )
-				.UseStartup<Startup>();
-		}
+                   config.AddJsonFile(baseFile, true, true);
+                   config.AddJsonFile(devFile, true, true);
+               })
+                .UseStartup<Startup>();
+        }
 	}
 }
