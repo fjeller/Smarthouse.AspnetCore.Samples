@@ -6,10 +6,23 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+	<h1 class="display-4">Welcome</h1>
 
 	<p>The current default Caching time is set to: @Model.DefaultCachingTime</p>
 	<p>The Share caching time is set to: @Model.ShareCachingTime</p>
-	<p>The Snapshot values are respectively: @Model.SnapshotDefaultCachingTime | @Model.SnapshotShareCachingTime</p>
 	<p>The Name is: @Model.Name</p>
+	
+	<p>The names and values are:</p>
+	@foreach (var kvp in Model.NamesAndValues)
+	{
+		<p>
+			@kvp.Key
+			:
+			@kvp.Value
+		</p>
+	}
 </div>
+
+<br /><br />
+
+

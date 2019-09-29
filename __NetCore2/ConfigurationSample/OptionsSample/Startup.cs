@@ -27,17 +27,19 @@ namespace OptionsSample
 		{
 			services.Configure<CookiePolicyOptions>( options =>
 			 {
-				// This lambda determines whether user consent for non-essential cookies is needed for a given request.
-				options.CheckConsentNeeded = context => true;
+				 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+				 options.CheckConsentNeeded = context => true;
 				 options.MinimumSameSitePolicy = SameSiteMode.None;
 			 } );
 
 			// Configure Caching Options, bind them to the configuration
 			services.Configure<DefaultCachingOptions>( Configuration );
+
+			// Configure the TestConfig to the section TestConfig
 			services.Configure<TestConfig>( Configuration.GetSection( "TestSection" ) );
 
-			// Change the value coming from the configuration file
-			services.Configure<DefaultCachingOptions>( options => options.ShareCachingTime = 200 );
+			// Configure a dictionary to the section NamesAndValues
+			services.Configure<NamesAndValuesOptions>( Configuration.GetSection( "NamesAndValues" ) );
 
 			// Add MVC
 			services.AddMvc().SetCompatibilityVersion( CompatibilityVersion.Version_2_2 );

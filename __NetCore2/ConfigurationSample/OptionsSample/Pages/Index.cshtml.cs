@@ -14,8 +14,8 @@ namespace OptionsSample.Pages
 		#region Private Fields
 
 		private DefaultCachingOptions _defaultCachingOptions;
-		private DefaultCachingOptions _snapshotOptions;
 		private TestConfig _myTestConfig;
+		private NamesAndValuesOptions _nameValueOptions;
 
 		#endregion
 
@@ -24,11 +24,10 @@ namespace OptionsSample.Pages
 		public int DefaultCachingTime { get; set; }
 
 		public int ShareCachingTime { get; set; }
-		public int SnapshotDefaultCachingTime { get; set; }
-
-		public int SnapshotShareCachingTime { get; set; }
 
 		public string Name { get; set; }
+
+		public Dictionary<string,string> NamesAndValues { get; set; }
 
 		#endregion
 
@@ -36,17 +35,15 @@ namespace OptionsSample.Pages
 		{
 			DefaultCachingTime = this._defaultCachingOptions.DefaultCachingTime;
 			ShareCachingTime = this._defaultCachingOptions.ShareCachingTime;
-			SnapshotDefaultCachingTime = this._snapshotOptions.DefaultCachingTime;
-			SnapshotShareCachingTime = this._snapshotOptions.ShareCachingTime;
 			Name = _myTestConfig.Name;
-
+			NamesAndValues = this._nameValueOptions.ToDictionary(k => k.Key, k => k.Value);
 		}
 
-		public IndexModel( IOptionsMonitor<DefaultCachingOptions> cachingOptionsAccessor , IOptionsSnapshot<DefaultCachingOptions> optionsSnapshot, IOptionsSnapshot<TestConfig> testConfigSnapshot)
+		public IndexModel( IOptionsMonitor<DefaultCachingOptions> cachingOptionsAccessor, IOptionsMonitor<TestConfig> testConfigAccessor, IOptionsMonitor<NamesAndValuesOptions> nameValuesOptionsAccessor )
 		{
 			this._defaultCachingOptions = cachingOptionsAccessor.CurrentValue;
-			this._snapshotOptions = optionsSnapshot.Value;
-			this._myTestConfig = testConfigSnapshot.Value;
+			this._myTestConfig = testConfigAccessor.CurrentValue;
+			this._nameValueOptions = nameValuesOptionsAccessor.CurrentValue;
 		}
 	}
 }
