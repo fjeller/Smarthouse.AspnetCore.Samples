@@ -1,0 +1,52 @@
+{
+	"CacheConfiguration": [
+		{
+			"Name": "News",
+			"Hours": 1,
+			"Minutes": 10,
+			"Seconds": 0
+		},
+		{
+			"Name": "Derivatives",
+			"Hours": 1,
+			"Minutes": 0,
+			"Seconds": 20
+		},
+		{
+			"Name": "Indexes",
+			"Hours": 1,
+			"Minutes": 0,
+			"Seconds": 20
+		},
+		{
+			"Name": "ExchangeRates",
+			"Hours": 1,
+			"Minutes": 0,
+			"Seconds": 20
+		},
+		{
+			"Name": "InterestRates",
+			"Hours": 1,
+			"Minutes": 0,
+			"Seconds": 20
+		},
+		{
+			"Name": "Shares",
+			"Hours": 1,
+			"Minutes": 0,
+			"Seconds": 20
+		},
+		{
+			"Name": "Funds",
+			"Hours": 1,
+			"Minutes": 5,
+			"Seconds": 0
+		},
+		{
+			"Name": "Commodities",
+			"Hours": 1,
+			"Minutes": 5,
+			"Seconds": 0
+		}
+	]
+}

@@ -1,0 +1,28 @@
+﻿@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Welcome to @Model.ApplicationName</h1>
+</div>
+<div>
+	<br /><br />
+	Hier sind einige Einstellungen:
+	<br /><br />
+
+	<h3>Caching:</h3>
+	@foreach (var item in Model.CachingTimes)
+	{
+		<p>@item</p>
+	}
+	<br /><br />
+	
+	<h3>Translations</h3>
+	@foreach (var keyValuePair in Model.Translations)
+	{
+		<p><b>@keyValuePair.Key</b>: @keyValuePair.Value</p>
+	}
+</div>
+
+

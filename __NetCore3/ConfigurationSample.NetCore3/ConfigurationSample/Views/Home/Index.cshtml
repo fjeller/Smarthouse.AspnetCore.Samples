@@ -1,0 +1,17 @@
+﻿@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	<p>The default page size is @Model.DefaultPageSize</p>
+	<p>The default ISIN Prefix is @Model.DefaultIsinPrefix</p>
+	<p>The default News count is @Model.DefaultNewsCount</p>
+
+	<p>This is your cache Configuration:</p>
+	@foreach (var item in Model.CacheConfiguration)
+	{
+		<p>@item.Name : @item.Hours.ToString("D2"):@item.Minutes.ToString("D2"):@item.Seconds.ToString("D2")</p>
+	}
+</div>
