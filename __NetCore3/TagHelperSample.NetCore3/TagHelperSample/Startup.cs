@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,15 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace TagHelperSample
 {
 	public class Startup
 	{
-
 		#region Properties
 
 		/// =================================================================================================================
@@ -38,14 +37,13 @@ namespace TagHelperSample
 		public void ConfigureServices( IServiceCollection services )
 		{
 			services.Configure<CookiePolicyOptions>( options =>
-			 {
+			{
 				// This lambda determines whether user consent for non-essential cookies is needed for a given request.
 				options.CheckConsentNeeded = context => true;
-				 options.MinimumSameSitePolicy = SameSiteMode.None;
-			 } );
+				options.MinimumSameSitePolicy = SameSiteMode.None;
+			} );
 
-
-			services.AddMvc().SetCompatibilityVersion( CompatibilityVersion.Version_2_2 );
+			services.AddControllersWithViews();
 		}
 
 		#endregion
@@ -59,10 +57,10 @@ namespace TagHelperSample
 		/// </summary>
 		/// <param name="app">An <see cref="IApplicationBuilder"/> object to add the functionalities to</param>
 		/// <param name="env">
-		/// The <see cref="IHostingEnvironment"/> with the information about the environment the app is running in
+		/// The <see cref="IWebHostEnvironment"/> with the information about the environment the app is running in
 		/// </param>
 		/// =================================================================================================================
-		public void Configure( IApplicationBuilder app, IHostingEnvironment env )
+		public void Configure( IApplicationBuilder app, IWebHostEnvironment env )
 		{
 			if ( env.IsDevelopment() )
 			{
@@ -74,16 +72,19 @@ namespace TagHelperSample
 				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 				app.UseHsts();
 			}
-
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
 
-			app.UseMvc( routes =>
+			app.UseRouting();
+
+			app.UseAuthorization();
+
+			app.UseEndpoints( endpoints =>
 			 {
-				 routes.MapRoute(
+				 endpoints.MapControllerRoute(
 					 name: "default",
-					 template: "{controller=Home}/{action=Index}/{id?}" );
+					 pattern: "{controller=Home}/{action=Index}/{id?}" );
 			 } );
 		}
 
@@ -103,6 +104,5 @@ namespace TagHelperSample
 		}
 
 		#endregion
-
 	}
 }
