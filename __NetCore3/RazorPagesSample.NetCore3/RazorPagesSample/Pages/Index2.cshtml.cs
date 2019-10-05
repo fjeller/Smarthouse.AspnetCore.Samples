@@ -10,11 +10,8 @@ using RazorPagesSample.DataContext;
 
 namespace RazorPagesSample.Pages
 {
-
-	//[BindProperties]
-	public class IndexModel : PageModel
-	{
-
+    public class Index2Model : PageModel
+    {
 		#region Fields
 
 		private readonly DemoDataContext _dataContext;
@@ -71,9 +68,9 @@ namespace RazorPagesSample.Pages
 		{
 			// Hack - get the id
 			PersonEntity lastEntity = this._dataContext.PersonEntities.OrderByDescending( p => p.Id ).FirstOrDefault();
-			int id = lastEntity?.Id +1 ?? 100;
+			int id = lastEntity?.Id + 1 ?? 100;
 
-			PersonEntity entity = new PersonEntity() {FirstName = FirstName, LastName = LastName, Id=id};
+			PersonEntity entity = new PersonEntity() { FirstName = FirstName, LastName = LastName, Id = id };
 
 			this._dataContext.PersonEntities.Add( entity );
 			await this._dataContext.SaveChangesAsync();
@@ -108,13 +105,12 @@ namespace RazorPagesSample.Pages
 		/// </summary>
 		/// <param name="dataContext">The data context</param>
 		/// =================================================================================================================
-		public IndexModel(DemoDataContext dataContext)
+		public Index2Model( DemoDataContext dataContext )
 		{
 			_dataContext = dataContext;
 			_dataContext.Database.EnsureCreated();
 		}
 
 		#endregion
-
 	}
 }

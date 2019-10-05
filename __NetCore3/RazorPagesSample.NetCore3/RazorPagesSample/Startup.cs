@@ -4,13 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Hosting;
 using RazorPagesSample.DataContext;
 
 namespace RazorPagesSample
@@ -40,13 +38,13 @@ namespace RazorPagesSample
 		/// =================================================================================================================
 		public void ConfigureServices( IServiceCollection services )
 		{
-			services.AddDbContext<DemoDataContext>(options => options.UseInMemoryDatabase("db"));
-			services.AddMvc().SetCompatibilityVersion( CompatibilityVersion.Version_2_2 );
+			services.AddDbContext<DemoDataContext>( options => options.UseInMemoryDatabase( "db" ) );
+			services.AddRazorPages();
 		}
 
 		#endregion
 
-		#region Configure (the HTTP Request pipeline)
+		#region Configure (the HTTP Request pipeline) 
 
 		/// =================================================================================================================
 		/// <summary>
@@ -55,10 +53,10 @@ namespace RazorPagesSample
 		/// </summary>
 		/// <param name="app">An <see cref="IApplicationBuilder"/> object to add the functionalities to</param>
 		/// <param name="env">
-		/// The <see cref="IHostingEnvironment"/> with the information about the environment the app is running in
+		/// The <see cref="IWebHostEnvironment"/> with the information about the environment the app is running in
 		/// </param>
 		/// =================================================================================================================
-		public void Configure( IApplicationBuilder app, IHostingEnvironment env )
+		public void Configure( IApplicationBuilder app, IWebHostEnvironment env )
 		{
 			if ( env.IsDevelopment() )
 			{
@@ -73,9 +71,15 @@ namespace RazorPagesSample
 
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
-			app.UseCookiePolicy();
 
-			app.UseMvc();
+			app.UseRouting();
+
+			app.UseAuthorization();
+
+			app.UseEndpoints( endpoints =>
+			 {
+				 endpoints.MapRazorPages();
+			 } );
 		}
 
 		#endregion

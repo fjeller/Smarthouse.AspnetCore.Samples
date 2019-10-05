@@ -1,0 +1,21 @@
+﻿@using RazorPagesSample.DataContext
+@model List<RazorPagesSample.DataContext.PersonEntity>
+
+
+	<div class="text-center">
+		<h1 class="display-4">The people from the database</h1>
+
+		<table style="width: 400px">
+
+			@foreach ( PersonEntity person in Model )
+			{
+				<tr>
+					<td>@person.FirstName</td>
+					<td>@person.LastName</td>
+				</tr>
+
+			}
+
+		</table>
+
+	</div>

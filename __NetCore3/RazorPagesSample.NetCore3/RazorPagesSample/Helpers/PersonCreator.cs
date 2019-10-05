@@ -147,7 +147,7 @@ namespace RazorPagesSample.Helpers
 		/// <param name="id">The id for the person. Not needed if not used in a database</param>
 		/// <returns>A Person including address</returns>
 		/// =================================================================================================================
-		public static PersonEntity CreateSinglePerson( bool isFemale, int id=0 )
+		public static PersonEntity CreateSinglePerson( bool isFemale, int id = 0 )
 		{
 			int index = _rng.Next( 20 );
 			string firstName = isFemale ? _femaleFirstNames[index] : _maleFirstNames[index];
@@ -156,7 +156,7 @@ namespace RazorPagesSample.Helpers
 
 			PersonEntity result = new PersonEntity
 			{
-				Id=id,
+				Id = id,
 				FirstName = firstName,
 				City = _cities[_rng.Next( 20 )],
 				LastName = _lastNames[_rng.Next( 20 )],
@@ -180,7 +180,7 @@ namespace RazorPagesSample.Helpers
 			for ( int i = 0; i < count; i++ )
 			{
 				bool isFemale = _rng.Next( 100 ) < 50;  // 50% boys and girls
-				result.Add( CreateSinglePerson( isFemale, i+1 ) );
+				result.Add( CreateSinglePerson( isFemale, i + 1 ) );
 			}
 
 			return result;

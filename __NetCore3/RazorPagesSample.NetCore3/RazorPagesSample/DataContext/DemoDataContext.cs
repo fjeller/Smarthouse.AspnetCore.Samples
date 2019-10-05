@@ -42,7 +42,7 @@ namespace RazorPagesSample.DataContext
 		/// </summary>
 		/// <param name="options">The options</param>
 		/// =================================================================================================================
-		public DemoDataContext( DbContextOptions<DemoDataContext> options ) : base( options )
+		public DemoDataContext(DbContextOptions<DemoDataContext> options) : base(options)
 		{
 
 		}
