@@ -4,13 +4,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using FormsSample.Models;
 
 namespace FormsSample.Controllers
 {
 	public class HomeController : Controller
 	{
-
 		#region View Methods
 
 		public IActionResult Index()
@@ -73,10 +73,9 @@ namespace FormsSample.Controllers
 
 		public IActionResult SaveNameJavascript( EnterNameModel model )
 		{
-			return Json( new {firstName = model.FirstName, lastName = model.LastName} );
+			return Json( new { firstName = model.FirstName, lastName = model.LastName } );
 		}
 
 		#endregion
-
 	}
 }

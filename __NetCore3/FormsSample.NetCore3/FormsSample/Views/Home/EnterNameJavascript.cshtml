@@ -3,10 +3,10 @@
 	ViewData["Title"] = "EnterNameAjax";
 }
 
-<h1>EnterName - Ajax Form</h1>
+<h1>EnterName - Javascript Ajax Form</h1>
 
-<form asp-action="SaveNameAjax" asp-controller="Home" data-ajax="true" data-ajax-mode="replace"
-      data-ajax-update="#resultDiv" data-ajax-method="post">
+<form asp-action="SaveNameJavascript" asp-controller="Home" data-ajax="true" 
+      data-ajax-success="handleResult" method="post">
 
 	<div asp-validation-summary="All"></div>
 
@@ -26,14 +26,14 @@
 		<button type="submit">Submit</button>
 	</div>
 
-	<br />
-	<br />
-	<div id="resultDiv">
-
-		@* results go here *@
-
-	</div>
 </form>
+
+<br /><br />
+<div id="resultDiv">
+
+	@* results go here *@
+
+</div>
 
 @section Scripts {
 	<partial name="_ValidationScriptsPartial" />

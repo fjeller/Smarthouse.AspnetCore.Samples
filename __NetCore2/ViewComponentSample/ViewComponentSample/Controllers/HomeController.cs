@@ -7,6 +7,7 @@ namespace ViewComponentSample.Controllers
 {
 	public class HomeController : Controller
 	{
+
 		#region Fields
 
 		private readonly DemoDataContext _demoContext;
