@@ -12,52 +12,95 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace LoggingSample
 {
-	public class Startup
-	{
-		public Startup( IConfiguration configuration )
-		{
-			Configuration = configuration;
-		}
+    public class Startup
+    {
 
-		public IConfiguration Configuration { get; }
+        #region Properties
 
-		// This method gets called by the runtime. Use this method to add services to the container.
-		public void ConfigureServices( IServiceCollection services )
-		{
-			services.Configure<CookiePolicyOptions>( options =>
-			 {
-				// This lambda determines whether user consent for non-essential cookies is needed for a given request.
-				options.CheckConsentNeeded = context => true;
-				 options.MinimumSameSitePolicy = SameSiteMode.None;
-			 } );
+        /// =================================================================================================================
+        /// <summary>
+        /// The configuration for the project
+        /// </summary>
+        /// =================================================================================================================
+        public IConfiguration Configuration { get; }
 
-			services.AddMvc().SetCompatibilityVersion( CompatibilityVersion.Version_2_2 );
-		}
+        #endregion
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure( IApplicationBuilder app, IHostingEnvironment env )
-		{
-			if ( env.IsDevelopment() )
-			{
-				app.UseDeveloperExceptionPage();
-			}
-			else
-			{
-				app.UseExceptionHandler( "/Home/Error" );
-				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-				app.UseHsts();
-			}
+        #region ConfigureServices
 
-			app.UseHttpsRedirection();
-			app.UseStaticFiles();
-			app.UseCookiePolicy();
+        /// =================================================================================================================
+        /// <summary>
+        /// Adds the different objects to the dependency injection. This method is called by the runtime. Add your own
+        /// objects here, using the pattern used by microsoft.
+        /// </summary>
+        /// <param name="services">The collection of services for the dependency injection</param>
+        /// =================================================================================================================
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
 
-			app.UseMvc( routes =>
-			 {
-				 routes.MapRoute(
-					 name: "default",
-					 template: "{controller=Home}/{action=Index}/{id?}" );
-			 } );
-		}
-	}
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+        }
+
+        #endregion
+
+        #region Configure (the HTTP Request Pipeline)
+
+        /// =================================================================================================================
+        /// <summary>
+        /// Configures the HTTP Request pipeline. Everything that needs to be used in the application (like middleware,
+        /// routing, static files, memory-cache, etc.) needs to be added to the pipeline here
+        /// </summary>
+        /// <param name="app">An <see cref="IApplicationBuilder"/> object to add the functionalities to</param>
+        /// <param name="env">
+        /// The <see cref="IWebHostEnvironment"/> with the information about the environment the app is running in
+        /// </param>
+        /// =================================================================================================================
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+        }
+
+        #endregion
+
+        #region Constructor
+
+        /// =================================================================================================================
+        /// <summary>
+        ///  The constructor
+        /// </summary>
+        /// <param name="configuration">The configuration, automatically loaded and injected into the project</param>
+        /// =================================================================================================================
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        #endregion
+    }
 }
