@@ -1,0 +1,9 @@
+﻿@model string
+@if ( String.IsNullOrEmpty( Model ) )
+{
+    <b>Speichern fehlgeschlagen</b>
+}
+else
+{
+    @:Der Benutzer <b>@Model</b>wurde angelegt
+}

@@ -1,0 +1,40 @@
+﻿@model CustomerSample.Contracts.Models.CustomerModel
+@{
+    ViewData["Title"] = "AddCustomer 2";
+}
+
+<h1>Add a Customer Part 2</h1>
+
+<form asp-action="AddCustomer2" asp-controller="Home" method="POST">
+    
+    <div asp-validation-summary="All"></div>
+    
+    <div class="form-group row">
+        <label asp-for="@Model.FirstName" class="col-2 col-form-label"></label>
+        <div class="col-10">
+            <input asp-for="@Model.FirstName" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="@Model.Lastname" class="col-2 col-form-label"></label>
+        <div class="col-10">
+            <input asp-for="@Model.Lastname" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="@Model.Email" class="col-2 col-form-label"></label>
+        <div class="col-10">
+            <input asp-for="@Model.Email" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row justify-content-end">
+        <button type="submit">Speichere</button>
+    </div>
+</form>
+
+<vc:customer-list></vc:customer-list>
+
+@section Scripts {
+    <partial name="_validationScriptsPartial" />
+}

@@ -1,0 +1,18 @@
+﻿@model List<CustomerSample.Contracts.Models.CustomerModel>
+
+<table>
+    
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Lastname, @item.FirstName</td>
+            <td>@item.Email</td>
+        </tr>
+    }
+
+</table>

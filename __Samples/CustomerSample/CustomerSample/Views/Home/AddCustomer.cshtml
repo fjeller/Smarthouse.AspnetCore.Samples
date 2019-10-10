@@ -1,0 +1,46 @@
+﻿@model CustomerSample.Contracts.Models.CustomerModel
+@{
+    ViewData["Title"] = "AddCustomer";
+}
+
+<h1>Add a Customer</h1>
+
+<form asp-action="AddCustomer" asp-controller="Home" data-ajax="true"
+      data-ajax-mode="Replace" data-ajax-update="#resultContainer"
+      data-ajax-method="POST">
+    
+    <div asp-validation-summary="All"></div>
+    
+    <div class="form-group row">
+        <label asp-for="@Model.FirstName" class="col-2 col-form-label"></label>
+        <div class="col-10">
+            <input asp-for="@Model.FirstName" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="@Model.Lastname" class="col-2 col-form-label"></label>
+        <div class="col-10">
+            <input asp-for="@Model.Lastname" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="@Model.Email" class="col-2 col-form-label"></label>
+        <div class="col-10">
+            <input asp-for="@Model.Email" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row justify-content-end">
+        <button type="submit">Speichere</button>
+    </div>
+</form>
+
+<div id="resultContainer">
+    
+
+
+</div>
+
+@section Scripts {
+    <partial name="_validationScriptsPartial" />
+}
