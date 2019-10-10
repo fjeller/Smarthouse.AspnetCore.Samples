@@ -1,0 +1,18 @@
+{
+  "CacheConfiguration": {
+    "Items": [
+      {
+        "Name": "Share",
+        "Hours": 0,
+        "Minutes": 0,
+        "Seconds": 20
+      },
+      {
+        "Name": "Fund",
+        "Hours": 2,
+        "Minutes": 0,
+        "Seconds": 0
+      }
+    ]
+  } 
+}

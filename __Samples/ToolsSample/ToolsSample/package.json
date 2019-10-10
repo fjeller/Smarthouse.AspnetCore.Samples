@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "gulp": "4.0.2",
+    "gulp-less": "4.0.1",
+    "gulp-csso": "3.0.1",
+    "gulp-concat": "2.6.1"
+  }
+}
